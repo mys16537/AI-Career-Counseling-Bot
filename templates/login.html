@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Welcome - Career Bot
+    </title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+        }
+
+
+        body {
+            display: flex;
+
+            background:
+                #060515;
+
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+        }
+
+
+        /* =====================================================
+           LEFT PANEL
+        ===================================================== */
+
+        .left-panel {
+
+            width: 45%;
+
+            height: 100vh;
+
+            padding:
+                38px 46px;
+
+            position:
+                relative;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            color:
+                white;
+
+            overflow:
+                hidden;
+
+            background:
+                radial-gradient(
+                    circle at bottom right,
+                    #1b1043 0%,
+                    #060515 70%
+                );
+        }
+
+
+        .stars {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            opacity:
+                0.10;
+
+            pointer-events:
+                none;
+
+            background-image:
+                radial-gradient(
+                    white 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                55px 55px;
+        }
+
+
+        .brand {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            font-size:
+                1.35rem;
+
+            font-weight:
+                700;
+        }
+
+
+        .brand i {
+
+            color:
+                #6366f1;
+
+            font-size:
+                1.55rem;
+        }
+
+
+        .hero {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            margin-top:
+                65px;
+        }
+
+
+        .hero h1 {
+
+            margin:
+                0;
+
+            font-size:
+                clamp(
+                    3rem,
+                    4vw,
+                    4rem
+                );
+
+            font-weight:
+                800;
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -1px;
+        }
+
+
+        .gradient-text {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #a855f7,
+                    #4361ee
+                );
+
+            background-clip:
+                text;
+
+            -webkit-background-clip:
+                text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+
+        .divider-line {
+
+            width:
+                64px;
+
+            height:
+                5px;
+
+            margin:
+                30px 0;
+
+            border-radius:
+                20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #a855f7,
+                    #4361ee
+                );
+        }
+
+
+        .hero-description {
+
+            max-width:
+                600px;
+
+            color:
+                #b6b5c1;
+
+            font-size:
+                1rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        .cpu-area {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            flex:
+                1;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+        }
+
+
+        .cpu-area i {
+
+            color:
+                #7547df;
+
+            font-size:
+                clamp(
+                    6rem,
+                    8vw,
+                    9rem
+                );
+        }
+
+
+        /* =====================================================
+           RIGHT PANEL
+        ===================================================== */
+
+        .right-panel {
+
+            width:
+                55%;
+
+            height:
+                100vh;
+
+            position:
+                relative;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                20px 46px;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                65px 0 0 65px;
+
+            background:
+                radial-gradient(
+                    circle at bottom left,
+                    #edfaff 0%,
+                    white 55%,
+                    #faf2ff 100%
+                );
+        }
+
+
+        .theme-toggle {
+
+            position:
+                absolute;
+
+            top:
+                18px;
+
+            right:
+                25px;
+
+            z-index:
+                20;
+
+            padding:
+                8px 17px;
+
+            border:
+                1px solid #dfe4ec;
+
+            border-radius:
+                50px;
+
+            background:
+                white;
+
+            color:
+                #475569;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-container {
+
+            width:
+                100%;
+
+            max-width:
+                680px;
+
+            position:
+                relative;
+
+            z-index:
+                10;
+        }
+
+
+        .form-section {
+
+            display:
+                none;
+        }
+
+
+        .form-section.active {
+
+            display:
+                block;
+
+            animation:
+                fadeIn
+                0.25s ease;
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(6px);
+            }
+
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+           HEADINGS
+        ===================================================== */
+
+        .form-heading {
+
+            margin-bottom:
+                14px;
+
+            text-align:
+                center;
+        }
+
+
+        .form-heading h2 {
+
+            margin-bottom:
+                2px;
+
+            color:
+                #20242c;
+
+            font-size:
+                1.8rem;
+
+            font-weight:
+                800;
+        }
+
+
+        .form-heading p {
+
+            margin:
+                0;
+
+            color:
+                #667085;
+
+            font-size:
+                0.88rem;
+        }
+
+
+        /* =====================================================
+           ALERT
+        ===================================================== */
+
+        .alert {
+
+            padding:
+                8px 12px;
+
+            margin-bottom:
+                10px;
+
+            border-radius:
+                11px;
+
+            font-size:
+                0.86rem;
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        .input-group {
+
+            min-height:
+                50px;
+
+            margin-bottom:
+                10px !important;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid #dfe3eb;
+
+            border-radius:
+                14px;
+
+            background:
+                white;
+
+            transition:
+                0.2s;
+        }
+
+
+        .input-group:focus-within {
+
+            border-color:
+                #8b5cf6;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    139,
+                    92,
+                    246,
+                    0.10
+                );
+        }
+
+
+        .icon-box {
+
+            width:
+                62px;
+
+            flex-shrink:
+                0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #f8fafc;
+
+            color:
+                #312e81;
+        }
+
+
+        .form-control {
+
+            min-height:
+                48px;
+
+            padding:
+                9px 17px;
+
+            border:
+                none;
+
+            box-shadow:
+                none !important;
+
+            font-size:
+                0.95rem;
+        }
+
+
+        .password-button {
+
+            width:
+                58px;
+
+            border:
+                none;
+
+            background:
+                transparent;
+        }
+
+
+        /* =====================================================
+           LOGIN OPTIONS
+        ===================================================== */
+
+        .login-options {
+
+            margin:
+                0 0 10px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            font-size:
+                0.86rem;
+        }
+
+
+        .forgot-link {
+
+            color:
+                #8b5cf6;
+
+            text-decoration:
+                none;
+        }
+
+
+        .forgot-link:hover {
+
+            text-decoration:
+                underline;
+        }
+
+
+        /* =====================================================
+           PRIMARY BUTTON
+        ===================================================== */
+
+        .btn-login {
+
+            width:
+                100%;
+
+            min-height:
+                49px;
+
+            border:
+                none;
+
+            border-radius:
+                15px;
+
+            color:
+                white;
+
+            font-size:
+                1rem;
+
+            font-weight:
+                600;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6267f7,
+                    #aa4df1
+                );
+        }
+
+
+        /* =====================================================
+           DIVIDER
+        ===================================================== */
+
+        .or-divider {
+
+            margin:
+                10px 0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                0.82rem;
+        }
+
+
+        .or-divider::before,
+        .or-divider::after {
+
+            content:
+                "";
+
+            flex:
+                1;
+
+            border-bottom:
+                1px solid #dfe3eb;
+        }
+
+
+        .or-divider::before {
+
+            margin-right:
+                12px;
+        }
+
+
+        .or-divider::after {
+
+            margin-left:
+                12px;
+        }
+
+
+        /* =====================================================
+           SOCIAL
+        ===================================================== */
+
+        .social-login {
+
+            width:
+                100%;
+
+            min-height:
+                44px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                7px;
+
+            border:
+                1px solid #dce1e8;
+
+            border-radius:
+                13px;
+
+            background:
+                white;
+
+            color:
+                #293548;
+
+            text-decoration:
+                none;
+
+            font-weight:
+                600;
+
+            font-size:
+                0.87rem;
+        }
+
+
+        .social-login:hover {
+
+            border-color:
+                #8b5cf6;
+
+            color:
+                #111827;
+        }
+
+
+        /* =====================================================
+           BOTTOM LOGIN OPTIONS
+        ===================================================== */
+
+        .bottom-login-options {
+
+            margin-top:
+                9px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                12px;
+
+            font-size:
+                0.80rem;
+        }
+
+
+        .small-action-link {
+
+            color:
+                #8b5cf6;
+
+            text-decoration:
+                none;
+
+            white-space:
+                nowrap;
+        }
+
+
+        .small-action-link:hover {
+
+            text-decoration:
+                underline;
+        }
+
+
+        .create-account-text {
+
+            color:
+                #64748b;
+
+            white-space:
+                nowrap;
+        }
+
+
+        /* =====================================================
+           FORM SWITCH / BACK
+        ===================================================== */
+
+        .form-switch {
+
+            margin-top:
+                10px;
+
+            text-align:
+                center;
+
+            color:
+                #64748b;
+
+            font-size:
+                0.84rem;
+        }
+
+
+        .form-switch a {
+
+            color:
+                #8b5cf6;
+
+            text-decoration:
+                none;
+
+            font-weight:
+                700;
+        }
+
+
+        /* =====================================================
+           INFO BOX
+        ===================================================== */
+
+        .info-box {
+
+            padding:
+                9px 12px;
+
+            margin-bottom:
+                11px;
+
+            border-radius:
+                11px;
+
+            color:
+                #5b4a86;
+
+            background:
+                rgba(
+                    139,
+                    92,
+                    246,
+                    0.07
+                );
+
+            font-size:
+                0.81rem;
+
+            line-height:
+                1.5;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (
+            max-width: 900px
+        ) {
+
+            html,
+            body {
+
+                overflow-y:
+                    auto;
+            }
+
+
+            .left-panel {
+
+                display:
+                    none;
+            }
+
+
+            .right-panel {
+
+                width:
+                    100%;
+
+                min-height:
+                    100vh;
+
+                height:
+                    auto;
+
+                overflow-y:
+                    auto;
+
+                border-radius:
+                    0;
+
+                padding:
+                    75px 22px 30px;
+            }
+
+
+            .bottom-login-options {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    4px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LEFT
+    ====================================================== -->
+
+    <div class="left-panel">
+
+
+        <div class="stars"></div>
+
+
+        <div class="brand">
+
+            <i
+                class="bi bi-mortarboard-fill"
+            ></i>
+
+            Career Bot
+
+        </div>
+
+
+        <div class="hero">
+
+            <h1>
+
+                Your Future.
+
+                <br>
+
+                <span
+                    class="gradient-text"
+                >
+
+                    Our Intelligence.
+
+                </span>
+
+            </h1>
+
+
+            <div
+                class="divider-line"
+            ></div>
+
+
+            <p
+                class="hero-description"
+            >
+
+                AI-powered guidance to discover careers,
+                build skills, and achieve your goals.
+
+            </p>
+
+        </div>
+
+
+        <div class="cpu-area">
+
+            <i
+                class="bi bi-cpu"
+            ></i>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         RIGHT
+    ====================================================== -->
+
+    <div class="right-panel">
+
+
+        <button
+            type="button"
+            class="theme-toggle"
+        >
+
+            <i
+                class="bi bi-sun"
+            ></i>
+
+            &nbsp; | &nbsp;
+
+            <i
+                class="bi bi-moon"
+            ></i>
+
+        </button>
+
+
+        <div class="form-container">
+
+
+            <!-- ALERT ERROR -->
+
+            {% if error %}
+
+                <div
+                    class="
+                        alert
+                        alert-danger
+                        text-center
+                    "
+                >
+
+                    {{ error }}
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- ALERT SUCCESS -->
+
+            {% if success %}
+
+                <div
+                    class="
+                        alert
+                        alert-success
+                        text-center
+                    "
+                >
+
+                    {{ success }}
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <div
+                id="loginForm"
+                class="
+                    form-section
+                    {% if active_form not in ['register', 'forgot', 'reset'] %}
+                    active
+                    {% endif %}
+                "
+            >
+
+
+                <div
+                    class="form-heading"
+                >
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Sign in to continue your journey
+                    </p>
+
+                </div>
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for('login') }}"
+                >
+
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="login"
+                    >
+
+
+                    <!-- USERNAME -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-person-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            placeholder="Username"
+                            value="{{ login_username or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-lock-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="loginPassword"
+                            class="form-control"
+                            placeholder="Password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-button"
+                            onclick="
+                                togglePassword(
+                                    'loginPassword',
+                                    'loginEye'
+                                )
+                            "
+                        >
+
+                            <i
+                                class="bi bi-eye"
+                                id="loginEye"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+
+                    <div
+                        class="login-options"
+                    >
+
+
+                        <div>
+
+                            <input
+                                type="checkbox"
+                                id="remember"
+                            >
+
+                            <label
+                                for="remember"
+                            >
+
+                                Remember me
+
+                            </label>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="forgot-link"
+                            onclick="
+                                showForm(
+                                    'forgotForm'
+                                );
+
+                                return false;
+                            "
+                        >
+
+                            Forgot Password?
+
+                        </a>
+
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="btn-login"
+                    >
+
+                        Sign In
+
+                        &nbsp;
+
+                        <i
+                            class="bi bi-arrow-right"
+                        ></i>
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- SOCIAL -->
+
+                <div
+                    class="or-divider"
+                >
+
+                    or continue with
+
+                </div>
+
+
+                <div
+                    class="row g-2"
+                >
+
+
+                    <div
+                        class="col-4"
+                    >
+
+                        <a
+                            href="{{ url_for('google_login') }}"
+                            class="social-login"
+                        >
+
+                            <i
+                                class="
+                                    bi
+                                    bi-google
+                                    text-danger
+                                "
+                            ></i>
+
+                            Google
+
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        class="col-4"
+                    >
+
+                        <a
+                            href="{{ url_for('linkedin_login') }}"
+                            class="social-login"
+                        >
+
+                            <i
+                                class="
+                                    bi
+                                    bi-linkedin
+                                    text-primary
+                                "
+                            ></i>
+
+                            LinkedIn
+
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        class="col-4"
+                    >
+
+                        <a
+                            href="{{ url_for('microsoft_login') }}"
+                            class="social-login"
+                        >
+
+                            <i
+                                class="bi bi-microsoft"
+                            ></i>
+
+                            Microsoft
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- GUEST + CREATE -->
+
+                <div
+                    class="bottom-login-options"
+                >
+
+
+                    <a
+                        href="{{ url_for('guest_login') }}"
+                        class="small-action-link"
+                    >
+
+                        <i
+                            class="
+                                bi
+                                bi-person-circle
+                                me-1
+                            "
+                        ></i>
+
+                        Continue as Guest
+
+                    </a>
+
+
+                    <span
+                        class="create-account-text"
+                    >
+
+                        Don't have an account?
+
+                        <a
+                            href="#"
+                            class="
+                                small-action-link
+                                fw-bold
+                                ms-1
+                            "
+                            onclick="
+                                showForm(
+                                    'registerForm'
+                                );
+
+                                return false;
+                            "
+                        >
+
+                            Create
+
+                            <i
+                                class="
+                                    bi
+                                    bi-arrow-right
+                                    ms-1
+                                "
+                            ></i>
+
+                        </a>
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 REGISTER
+            ================================================== -->
+
+            <div
+                id="registerForm"
+                class="
+                    form-section
+                    {% if active_form == 'register' %}
+                    active
+                    {% endif %}
+                "
+            >
+
+
+                <div
+                    class="form-heading"
+                >
+
+                    <h2>
+                        Join Us
+                    </h2>
+
+                    <p>
+                        Start your AI career journey
+                    </p>
+
+                </div>
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for('login') }}"
+                >
+
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="register"
+                    >
+
+
+                    <!-- FULL NAME -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-person-badge-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="text"
+                            name="full_name"
+                            class="form-control"
+                            placeholder="Full Name"
+                            value="{{ register_full_name or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-envelope-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Email Address"
+                            value="{{ register_email or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- USERNAME -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-person-plus-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            placeholder="Choose Username"
+                            value="{{ register_username or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-lock-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="registerPassword"
+                            class="form-control"
+                            placeholder="Create Password (minimum 8 characters)"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-button"
+                            onclick="
+                                togglePassword(
+                                    'registerPassword',
+                                    'registerEye'
+                                )
+                            "
+                        >
+
+                            <i
+                                class="bi bi-eye"
+                                id="registerEye"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- CREATE -->
+
+                    <button
+                        type="submit"
+                        class="btn-login"
+                    >
+
+                        Create Account
+
+                        &nbsp;
+
+                        <i
+                            class="bi bi-arrow-right"
+                        ></i>
+
+                    </button>
+
+
+                    <!-- BACK -->
+
+                    <p
+                        class="form-switch"
+                    >
+
+                        Already have an account?
+
+                        <a
+                            href="#"
+                            onclick="
+                                showForm(
+                                    'loginForm'
+                                );
+
+                                return false;
+                            "
+                        >
+
+                            <i
+                                class="bi bi-arrow-left"
+                            ></i>
+
+                            Back to Login
+
+                        </a>
+
+                    </p>
+
+
+                </form>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 FORGOT PASSWORD
+            ================================================== -->
+
+            <div
+                id="forgotForm"
+                class="
+                    form-section
+                    {% if active_form == 'forgot' %}
+                    active
+                    {% endif %}
+                "
+            >
+
+
+                <div
+                    class="form-heading"
+                >
+
+                    <h2>
+                        Forgot Password?
+                    </h2>
+
+                    <p>
+                        We'll send you a secure reset link
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="info-box"
+                >
+
+                    Enter the email address registered
+                    with your CareerBot account.
+                    The reset link will expire after
+                    15 minutes.
+
+                </div>
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for('forgot_password') }}"
+                >
+
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-envelope-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Registered Email Address"
+                            value="{{ forgot_email or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-login mt-1"
+                    >
+
+                        Send Reset Link
+
+                        &nbsp;
+
+                        <i
+                            class="bi bi-send-fill"
+                        ></i>
+
+                    </button>
+
+
+                    <p
+                        class="form-switch"
+                    >
+
+                        Remember your password?
+
+                        <a
+                            href="#"
+                            onclick="
+                                showForm(
+                                    'loginForm'
+                                );
+
+                                return false;
+                            "
+                        >
+
+                            <i
+                                class="bi bi-arrow-left"
+                            ></i>
+
+                            Back to Login
+
+                        </a>
+
+                    </p>
+
+
+                </form>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 RESET PASSWORD
+            ================================================== -->
+
+            <div
+                id="resetForm"
+                class="
+                    form-section
+                    {% if active_form == 'reset' %}
+                    active
+                    {% endif %}
+                "
+            >
+
+
+                <div
+                    class="form-heading"
+                >
+
+                    <h2>
+                        Create New Password
+                    </h2>
+
+                    <p>
+                        Choose a new password for your account
+                    </p>
+
+                </div>
+
+
+                <form
+                    method="POST"
+
+                    action="
+                    {% if reset_token %}
+                        {{ url_for(
+                            'reset_password',
+                            token=reset_token
+                        ) }}
+                    {% else %}
+                        #
+                    {% endif %}
+                    "
+                >
+
+
+                    <!-- NEW PASSWORD -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-lock-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="password"
+                            name="new_password"
+                            id="newPassword"
+                            class="form-control"
+                            placeholder="New Password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-button"
+                            onclick="
+                                togglePassword(
+                                    'newPassword',
+                                    'newPasswordEye'
+                                )
+                            "
+                        >
+
+                            <i
+                                class="bi bi-eye"
+                                id="newPasswordEye"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- CONFIRM -->
+
+                    <div
+                        class="input-group"
+                    >
+
+                        <div
+                            class="icon-box"
+                        >
+
+                            <i
+                                class="bi bi-shield-lock-fill"
+                            ></i>
+
+                        </div>
+
+
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            id="confirmPassword"
+                            class="form-control"
+                            placeholder="Confirm New Password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-button"
+                            onclick="
+                                togglePassword(
+                                    'confirmPassword',
+                                    'confirmPasswordEye'
+                                )
+                            "
+                        >
+
+                            <i
+                                class="bi bi-eye"
+                                id="confirmPasswordEye"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-login mt-1"
+                    >
+
+                        Reset Password
+
+                        &nbsp;
+
+                        <i
+                            class="bi bi-check-circle"
+                        ></i>
+
+                    </button>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        function showForm(
+            formId
+        ) {
+
+            document
+                .querySelectorAll(
+                    '.form-section'
+                )
+                .forEach(
+                    function(section) {
+
+                        section
+                            .classList
+                            .remove(
+                                'active'
+                            );
+
+                    }
+                );
+
+
+            const target =
+                document.getElementById(
+                    formId
+                );
+
+
+            if (target) {
+
+                target
+                    .classList
+                    .add(
+                        'active'
+                    );
+
+            }
+
+        }
+
+
+        function togglePassword(
+            inputId,
+            iconId
+        ) {
+
+            const input =
+                document.getElementById(
+                    inputId
+                );
+
+
+            const icon =
+                document.getElementById(
+                    iconId
+                );
+
+
+            if (
+                input.type
+                ===
+                'password'
+            ) {
+
+                input.type =
+                    'text';
+
+
+                icon.classList.remove(
+                    'bi-eye'
+                );
+
+
+                icon.classList.add(
+                    'bi-eye-slash'
+                );
+
+            }
+
+            else {
+
+                input.type =
+                    'password';
+
+
+                icon.classList.remove(
+                    'bi-eye-slash'
+                );
+
+
+                icon.classList.add(
+                    'bi-eye'
+                );
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

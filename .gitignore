@@ -1,0 +1,27 @@
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Private database records
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*_backup.py
+*.bak
+*.log
+
+# IDE settings
+.vscode/
+.idea/
